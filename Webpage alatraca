@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+    <title>Webpage</title>
+
+
+    <style>
+
+        .button{
+            cursor:pointer;
+        }
+    </style>
+
+    <head>
+        <h1>Webpage with different functions</h1>
+    </head>
+
+    <body>
+        <!-- HEAT CONVERSION-->
+        <h2>Celsius to Farenheight</h2><br>
+        <input type="text" id="ctf">
+        <button class="button" onclick="ctfConv()">Convert</button><br>
+        <p id="ctfRes">Result: </p>
+
+        <h2>Farenheight to Celsius</h2><br>
+        <input type="text" id="ftc">
+        <button class="button" onclick="ftcConv()">Convert</button><br>
+        <p id="ftcRes">Result: </p>
+
+        <!-- TAX CALCULATOR-->
+        <h2>Income tax calculator</h2><br>
+        Gross Income: <input type="text" id="income">takes 2.5% of your income<br>
+        <button class="button" onclick="taxCalc()">Calculate</button><br>
+        <p id="total">Calculated tax: </p>
+
+        <h2>Factorial</h2><br>
+        <input type="text" id="factorial">
+        <button class="button" onclick="fact()">Calculate</button><br>
+        <p id="factRes">Result: </p>
+
+        <h2>Simple Payroll</h2><br>
+        Pay per hour: <input type="text" id="payHour"><br>
+        Total hours worked: <input type="text" id="totalHours"><br>
+        Overtime: <input type="text" id="overtime"><br>
+        Overtime pay: <input type="text" id="overPay"><br>
+
+        <button class="button" onclick="payroll()">Calculate</button><br>
+        <p id="gIncome">Gross Pay: </p>
+        <p id="payRes">Result: </p>
+
+        <script>
+       
+        function ctfConv(){
+            let ruby = document.getElementById('ctf').value;
+            document.getElementById('ctfRes').innerHTML = "Results: " + (parseInt(ruby)*1.8)+32;
+        }
+
+        function ftcConv(){
+            let amethyst = document.getElementById('ftc').value;
+            document.getElementById('ftcRes').innerHTML = "Results: " + (parseInt(amethyst)-32)/1.8;
+        }
+
+        function taxCalc(){
+            let value = document.getElementById('income').value;
+            document.getElementById('total').innerHTML = "Calculated tax: " + (parseInt(value)-0.025);
+        }
+
+        function fact(){
+            let num = document.getElementById('factorial').value;
+            let count = 0;
+
+            while (num > 0){
+                count += num * (num - 1);
+                num--;
+            }
+
+            document.getElementById('factRes').innerHTML = "Results: " + count;
+        }
+
+        function payroll(){
+            let ph = document.getElementById('payHour').value
+            let th = document.getElementById('totalHours').value
+            let ov = document.getElementById('overtime').value
+            let op = document.getElementById('overPay').value
+
+            document.getElementById('gIncome').innerHTML = "Gross Pay: " + ((parseInt(ph)*parseInt(th))+(parseInt(ov)*parseInt(op)));
+            let gi = (parseInt(ph)*parseInt(th))+(parseInt(ov)*parseInt(op));
+
+            document.getElementById('payRes').innerHTML = "Result: " + (parseInt(gi) - (parseInt(gi) * 0.05));
+        }
+
+        </script>
+    
+    </body>
+
+</html>
